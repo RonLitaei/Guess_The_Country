@@ -29,3 +29,23 @@
 2026-04-13 13:47:47,390 [INFO] New Game Started | Session: ec1f7b73-c747-45b4-8b85-0c11d0037c70 | Target: South Africa
 2026-04-13 14:01:49,659 [INFO] New Game Started | Session: 3bbdb212-e29e-4842-8a4e-a9cfa0ed482e | Target: India
 2026-04-13 14:01:49,662 [INFO] New Game Started | Session: 893276dd-6eb1-41b8-a93c-6c358af088ac | Target: Australia
+2026-04-13 14:08:41,952 [INFO] New Game Started | Session: 2eb9ed65-1c9d-4404-9176-b3f8b40877e6 | Target: India
+2026-04-13 14:08:44,813 [INFO] Guess Submitted | Session: 2eb9ed65-1c9d-4404-9176-b3f8b40877e6 | Guess: 'SDF' | Correct: False
+2026-04-13 14:08:50,338 [INFO] Guess Submitted | Session: 2eb9ed65-1c9d-4404-9176-b3f8b40877e6 | Guess: 'INDIA' | Correct: True
+2026-04-13 14:08:51,264 [INFO] New Game Started | Session: a05b8672-b5ac-4e4c-a969-2354d0006e98 | Target: India
+2026-04-13 14:08:52,164 [INFO] Answer Revealed | Session: a05b8672-b5ac-4e4c-a969-2354d0006e98 | Answer: India
+2026-04-13 14:08:54,437 [INFO] New Game Started | Session: 0f45c853-de3e-489a-8c6e-087c9140a4d6 | Target: Italy
+2026-04-13 14:09:11,804 [INFO] New Game Started | Session: fcea1fcc-9bc3-46e1-b55a-b8ae0d162178 | Target: France
+2026-04-13 14:11:16,681 [INFO] New Game Started | Session: 531b5d33-03dd-43c6-a21b-cd365ad70970 | Target: Mexico
+2026-04-13 14:11:16,685 [INFO] New Game Started | Session: 440128b8-77e9-4d3f-9aa7-ff22914c2324 | Target: Brazil
+2026-04-13 14:11:29,554 [INFO] Clue Unlocked | Session: 440128b8-77e9-4d3f-9aa7-ff22914c2324 | Clue Number: 2
+2026-04-13 14:11:53,123 [INFO] Guess Submitted | Session: 440128b8-77e9-4d3f-9aa7-ff22914c2324 | Guess: 'Argentina' | Correct: False
+2026-04-13 14:12:04,126 [INFO] Answer Revealed | Session: 440128b8-77e9-4d3f-9aa7-ff22914c2324 | Answer: Brazil
+2026-04-13 14:13:26,097 [INFO] New Game Started | Session: b8a1d780-bae7-4e97-9485-94ee777db9db | Target: France
+2026-04-13 14:16:41,067 [INFO] New Game Started | Session: 4347955c-eb5e-4101-976b-0ae7ae3c43ba | Target: Japan
+2026-04-13 14:16:44,116 [INFO] Answer Revealed | Session: 4347955c-eb5e-4101-976b-0ae7ae3c43ba | Answer: Japan
+2026-04-13 14:17:15,710 [INFO] New Game Started | Session: d43b4af3-98c8-4026-9d97-427dbd0091c7 | Target: Italy
+2026-04-13 14:17:27,378 [INFO] Guess Submitted | Session: d43b4af3-98c8-4026-9d97-427dbd0091c7 | Guess: 'bulgaria' | Correct: False
+2026-04-13 14:17:29,416 [INFO] Answer Revealed | Session: d43b4af3-98c8-4026-9d97-427dbd0091c7 | Answer: Italy
+2026-04-13 14:17:32,197 [INFO] New Game Started | Session: e325b2a1-0aeb-487d-be8c-5249ac3dad40 | Target: Brazil
+2026-04-13 14:17:36,759 [INFO] Guess Submitted | Session: e325b2a1-0aeb-487d-be8c-5249ac3dad40 | Guess: 'brazil' | Correct: True
