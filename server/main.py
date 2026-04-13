@@ -21,8 +21,7 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
     handlers=[
-        logging.StreamHandler(),
-        logging.FileHandler("game.log")
+        logging.StreamHandler()
     ]
 )
 logger = logging.getLogger("guess-the-country")
