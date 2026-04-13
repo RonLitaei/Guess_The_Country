@@ -111,6 +111,7 @@ function App() {
               value={guess}
               onChange={(e) => setGuess(e.target.value)}
               disabled={loading}
+              maxLength={50}
               autoFocus
             />
             <div className="button-group">

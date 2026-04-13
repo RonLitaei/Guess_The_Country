@@ -1,11 +1,20 @@
-from fastapi import FastAPI, HTTPException, Body
+from fastapi import FastAPI, HTTPException, Body, Request
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
+from slowapi import Limiter, _rate_limit_exceeded_handler
+from slowapi.util import get_remote_address
+from slowapi.errors import RateLimitExceeded
 import json
 import random
 import uuid
 import os
 import logging
+
+# Configure rate limiting
+limiter = Limiter(key_func=get_remote_address)
+app = FastAPI(title="Guess The Country API")
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
 # Configure logging
 logging.basicConfig(
@@ -40,11 +49,12 @@ with open(countries_path, "r") as f:
 sessions = {}
 
 class GuessRequest(BaseModel):
-    session_id: str
-    guess: str
+    session_id: str = Field(..., max_length=100)
+    guess: str = Field(..., max_length=50)
 
 @app.get("/api/game/new")
-async def start_new_game():
+@limiter.limit("10/minute")
+async def start_new_game(request: Request):
     country = random.choice(COUNTRIES)
     session_id = str(uuid.uuid4())
     
@@ -64,7 +74,8 @@ async def start_new_game():
 
 
 @app.get("/api/game/clue")
-async def get_next_clue(session_id: str):
+@limiter.limit("20/minute")
+async def get_next_clue(request: Request, session_id: str):
     if session_id not in sessions:
         raise HTTPException(status_code=404, detail="Session not found")
     
@@ -84,7 +95,8 @@ async def get_next_clue(session_id: str):
     }
 
 @app.get("/api/game/reveal")
-async def reveal_answer(session_id: str):
+@limiter.limit("10/minute")
+async def reveal_answer(request: Request, session_id: str):
     if session_id not in sessions:
         raise HTTPException(status_code=404, detail="Session not found")
     
@@ -97,13 +109,15 @@ async def reveal_answer(session_id: str):
     }
 
 @app.post("/api/game/guess")
-async def submit_guess(request: GuessRequest):
-    if request.session_id not in sessions:
+@limiter.limit("30/minute")
+async def submit_guess(request: Request, guess_req: GuessRequest = Body(...)):
+    session_id = guess_req.session_id
+    if session_id not in sessions:
         raise HTTPException(status_code=404, detail="Session not found")
     
-    session = sessions[request.session_id]
+    session = sessions[session_id]
     correct_name = session["country_name"].lower()
-    user_guess = request.guess.strip().lower()
+    user_guess = guess_req.guess.strip().lower()
     
     is_correct = user_guess == correct_name
     
