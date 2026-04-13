@@ -27,9 +27,6 @@ logging.basicConfig(
 )
 logger = logging.getLogger("guess-the-country")
 
-app = FastAPI(title="Guess The Country API")
-
-
 # Enable CORS for frontend interaction
 app.add_middleware(
     CORSMiddleware,
@@ -45,7 +42,6 @@ with open(countries_path, "r") as f:
     COUNTRIES = json.load(f)
 
 # In-memory storage for active games (sessions)
-# In a real app, this would be in Redis or a DB
 sessions = {}
 
 class GuessRequest(BaseModel):
@@ -72,7 +68,6 @@ async def start_new_game(request: Request):
         "total_clues": len(country["clues"])
     }
 
-
 @app.get("/api/game/clue")
 @limiter.limit("20/minute")
 async def get_next_clue(request: Request, session_id: str):
@@ -89,7 +84,6 @@ async def get_next_clue(request: Request, session_id: str):
     logger.info(f"Clue Unlocked | Session: {session_id} | Clue Number: {session['unlocked_clues']}")
     
     return {
-
         "clue": session["clues"][clue_index],
         "clue_number": session["unlocked_clues"]
     }
@@ -103,7 +97,6 @@ async def reveal_answer(request: Request, session_id: str):
     session = sessions[session_id]
     logger.info(f"Answer Revealed | Session: {session_id} | Answer: {session['country_name']}")
     return {
-
         "answer": session["country_name"],
         "message": f"The correct answer was {session['country_name']}."
     }
@@ -121,10 +114,9 @@ async def submit_guess(request: Request, guess_req: GuessRequest = Body(...)):
     
     is_correct = user_guess == correct_name
     
-    logger.info(f"Guess Submitted | Session: {request.session_id} | Guess: '{request.guess}' | Correct: {is_correct}")
+    logger.info(f"Guess Submitted | Session: {session_id} | Guess: '{guess_req.guess}' | Correct: {is_correct}")
     
     response = {
-
         "correct": is_correct,
         "message": "Correct!" if is_correct else "Wrong. Try again!"
     }
