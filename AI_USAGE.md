@@ -17,6 +17,7 @@ This document summarizes the interaction between the user and the AI assistant d
 | **Game Mechanics**| "unlocking the clues sounds better - use that method." | Implemented a gamified "Unlock Clue" system instead of showing all clues at once. |
 | **Compliance** | "also make sure to doucment this conversion and my prompts" | Created this `AI_USAGE.md` file to ensure full compliance with the assessment requirements. |
 | **Refinement** | "make sure that the user can try to guess the county again without telling him the answer until he chooses to see it and move on to the next guess" | Updated API and UI to support multiple attempts and a semi-hidden answer reveal. |
+| **Logging** | "add logs to users input for debugging" | Implemented server-side logging (to stream and `game.log`) for all user interactions. |
 
 ## Code Generation vs. Manual Modification
 - **AI Generated**: 

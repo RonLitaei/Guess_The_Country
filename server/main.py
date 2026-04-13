@@ -5,8 +5,21 @@ import json
 import random
 import uuid
 import os
+import logging
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    handlers=[
+        logging.StreamHandler(),
+        logging.FileHandler("game.log")
+    ]
+)
+logger = logging.getLogger("guess-the-country")
 
 app = FastAPI(title="Guess The Country API")
+
 
 # Enable CORS for frontend interaction
 app.add_middleware(
@@ -41,11 +54,14 @@ async def start_new_game():
         "unlocked_clues": 1
     }
     
+    logger.info(f"New Game Started | Session: {session_id} | Target: {country['name']}")
+    
     return {
         "session_id": session_id,
         "clue": country["clues"][0],
         "total_clues": len(country["clues"])
     }
+
 
 @app.get("/api/game/clue")
 async def get_next_clue(session_id: str):
@@ -59,7 +75,10 @@ async def get_next_clue(session_id: str):
     clue_index = session["unlocked_clues"]
     session["unlocked_clues"] += 1
     
+    logger.info(f"Clue Unlocked | Session: {session_id} | Clue Number: {session['unlocked_clues']}")
+    
     return {
+
         "clue": session["clues"][clue_index],
         "clue_number": session["unlocked_clues"]
     }
@@ -70,7 +89,9 @@ async def reveal_answer(session_id: str):
         raise HTTPException(status_code=404, detail="Session not found")
     
     session = sessions[session_id]
+    logger.info(f"Answer Revealed | Session: {session_id} | Answer: {session['country_name']}")
     return {
+
         "answer": session["country_name"],
         "message": f"The correct answer was {session['country_name']}."
     }
@@ -86,7 +107,10 @@ async def submit_guess(request: GuessRequest):
     
     is_correct = user_guess == correct_name
     
+    logger.info(f"Guess Submitted | Session: {request.session_id} | Guess: '{request.guess}' | Correct: {is_correct}")
+    
     response = {
+
         "correct": is_correct,
         "message": "Correct!" if is_correct else "Wrong. Try again!"
     }
