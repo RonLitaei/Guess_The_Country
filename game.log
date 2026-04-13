@@ -19,3 +19,13 @@
 2026-04-13 13:45:12,983 [INFO] New Game Started | Session: 0dfdf957-17ca-4c5a-9d83-783a7c0d201f | Target: Brazil
 2026-04-13 13:45:12,985 [INFO] New Game Started | Session: 003b6b8b-1f15-42c8-99ba-f36c38cdb002 | Target: France
 2026-04-13 13:46:07,742 [INFO] Clue Unlocked | Session: 003b6b8b-1f15-42c8-99ba-f36c38cdb002 | Clue Number: 2
+2026-04-13 13:47:24,236 [INFO] New Game Started | Session: c9878be2-8a29-4585-b92c-e3022d57028a | Target: Italy
+2026-04-13 13:47:24,238 [INFO] New Game Started | Session: dbd5995c-e407-49c9-8822-536611343f09 | Target: Italy
+2026-04-13 13:47:28,288 [INFO] Guess Submitted | Session: dbd5995c-e407-49c9-8822-536611343f09 | Guess: 'a' | Correct: False
+2026-04-13 13:47:35,594 [INFO] Guess Submitted | Session: dbd5995c-e407-49c9-8822-536611343f09 | Guess: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' | Correct: False
+2026-04-13 13:47:37,873 [INFO] Clue Unlocked | Session: dbd5995c-e407-49c9-8822-536611343f09 | Clue Number: 2
+2026-04-13 13:47:39,424 [INFO] Clue Unlocked | Session: dbd5995c-e407-49c9-8822-536611343f09 | Clue Number: 3
+2026-04-13 13:47:45,918 [INFO] Guess Submitted | Session: dbd5995c-e407-49c9-8822-536611343f09 | Guess: 'italy' | Correct: True
+2026-04-13 13:47:47,390 [INFO] New Game Started | Session: ec1f7b73-c747-45b4-8b85-0c11d0037c70 | Target: South Africa
+2026-04-13 14:01:49,659 [INFO] New Game Started | Session: 3bbdb212-e29e-4842-8a4e-a9cfa0ed482e | Target: India
+2026-04-13 14:01:49,662 [INFO] New Game Started | Session: 893276dd-6eb1-41b8-a93c-6c358af088ac | Target: Australia

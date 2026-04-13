@@ -7,19 +7,17 @@ This document summarizes the interaction between the user and the AI assistant d
 - **Vite**: Used for scaffolding the React application.
 - **Git**: Used for version control.
 
-## Prompts and interpretation
+## Development Phases and AI Interaction
 
-| Phase | User Prompt | AI Interpretation & Action |
-|-------|-------------|----------------------------|
-| **Initialization** | "can u see the pdf?" | Read and parsed `onomagic_fullstack_task.pdf` to extract project requirements. |
-| **Planning** | "proceed" | Proposed a fullstack architecture (React + Node.js/Express) and premium design. |
-| **Logic/Stack** | "use python for the backend" | Pivoted from Node.js to Python/FastAPI as requested. |
-| **Game Mechanics**| "unlocking the clues sounds better - use that method." | Implemented a gamified "Unlock Clue" system instead of showing all clues at once. |
-| **Compliance** | "also make sure to doucment this conversion and my prompts" | Created this `AI_USAGE.md` file to ensure full compliance with the assessment requirements. |
-| **Refinement** | "make sure that the user can try to guess the county again without telling him the answer until he chooses to see it and move on to the next guess" | Updated API and UI to support multiple attempts and a semi-hidden answer reveal. |
-| **Logging** | "add logs to users input for debugging" | Implemented server-side logging (to stream and `game.log`) for all user interactions. |
-| **Security** | "limit input length... limit the requests"| Implemented Pydantic-based input validation and SlowAPI rate limiting per user direction. |
-| **Deployment** | "uploaded here but cant open it" | Configured the app for production by decoupling the API URL and adding a `netlify.toml` for correct build routing. |
+| Development Phase | User Guidance & Direction | AI Interpretation & Action |
+|-------------------|---------------------------|----------------------------|
+| **Initialization** | Requirement Analysis | Read and parsed the task PDF to extract core project requirements. |
+| **Technology Stack** | Backend Selection | Transitioned from Node.js to Python/FastAPI as requested by the user. |
+| **UX Design** | Game Mechanics | Implemented an interactive "Unlock Clue" system based on user preference. |
+| **Logic Refinement** | Game Loop Polish | Refined the guess validation to allow multiple attempts and manual answer revelation. |
+| **Observability** | Debugging Infrastructure | Integrated comprehensive server-side logging for user inputs and game events. |
+| **Security Oversight** | Resource Protection | Implemented Pydantic-based input validation and SlowAPI rate limiting per user direction. |
+| **Deployment** | Production Readiness | Decoupled API configurations and optimized build settings for Netlify/Render deployment. |
 
 ## Code Generation vs. Manual Modification
 - **AI Generated**: 
@@ -27,9 +25,10 @@ This document summarizes the interaction between the user and the AI assistant d
   - React frontend (Vite scaffolded, logic implemented by AI).
   - Premium CSS design system (glassmorphism UI).
   - Dataset of 10 countries with clues.
-- **User Modified**:
-  - The user guided the technology selection (Python) and the specific game mechanic (Clue unlocking).
-  - **The user performed security oversight**, identifying the need for input sanitization and rate limiting to prevent exploitation.
+- **User Oversight & Modification**:
+  - The user directed the choice of technology and specific gameplay mechanics.
+  - **The user performed critical security oversight**, identifying the need for input sanitization and request rate limiting.
+  - The user verified the local and production stability of the application.
 
 ## Configuration Tools
 - No specific AI configuration tools (like `.cursor/rules`) were used beyond the default system instructions of the Antigravity assistant.
