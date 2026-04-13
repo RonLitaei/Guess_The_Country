@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "name": "Japan",
+    "clues": [
+      "Known as the Land of the Rising Sun.",
+      "Famous for sushi and cherry blossoms.",
+      "An archipelago in East Asia with its capital in Tokyo."
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Brazil",
+    "clues": [
+      "Largest country in South America.",
+      "Famous for its annual Carnival and the Amazon rainforest.",
+      "Hosted the 2014 FIFA World Cup and 2016 Summer Olympics."
+    ]
+  },
+  {
+    "id": 3,
+    "name": "France",
+    "clues": [
+      "Home to the Eiffel Tower and the Louvre Museum.",
+      "Famous for its wine, cheese, and fashion.",
+      "The largest country in the European Union by land area."
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Egypt",
+    "clues": [
+      "Home to the ancient Pyramids of Giza.",
+      "The Nile River, the longest river in Africa, flows through it.",
+      "Located in the northeast corner of Africa."
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Australia",
+    "clues": [
+      "Commonly known as the 'Land Down Under'.",
+      "Home to the Great Barrier Reef and unique wildlife like kangaroos.",
+      "The world's largest island and smallest continent."
+    ]
+  },
+  {
+    "id": 6,
+    "name": "India",
+    "clues": [
+      "The second most populous country in the world.",
+      "Home to the Taj Mahal, one of the New Seven Wonders of the World.",
+      "Known for its diverse culture and spicy cuisine."
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Canada",
+    "clues": [
+      "The second-largest country in the world by total area.",
+      "Famous for its maple syrup and ice hockey.",
+      "Has the longest coastline of any country in the world."
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Italy",
+    "clues": [
+      "Shaped like a boot and located in Southern Europe.",
+      "Known for its pizza, pasta, and Renaissance art.",
+      "Home to the city of Venice and the Colosseum."
+    ]
+  },
+  {
+    "id": 9,
+    "name": "South Africa",
+    "clues": [
+      "Known as the 'Rainbow Nation' due to its multicultural diversity.",
+      "Famous for its wildlife safaris and Table Mountain.",
+      "The southernmost country on the African continent."
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Mexico",
+    "clues": [
+      "Famous for its ancient Mayan and Aztec ruins.",
+      "Known for its vibrant culture, tacos, and tequila.",
+      "Located in the southern part of North America."
+    ]
+  }
+]
