@@ -64,6 +64,17 @@ async def get_next_clue(session_id: str):
         "clue_number": session["unlocked_clues"]
     }
 
+@app.get("/api/game/reveal")
+async def reveal_answer(session_id: str):
+    if session_id not in sessions:
+        raise HTTPException(status_code=404, detail="Session not found")
+    
+    session = sessions[session_id]
+    return {
+        "answer": session["country_name"],
+        "message": f"The correct answer was {session['country_name']}."
+    }
+
 @app.post("/api/game/guess")
 async def submit_guess(request: GuessRequest):
     if request.session_id not in sessions:
@@ -77,11 +88,8 @@ async def submit_guess(request: GuessRequest):
     
     response = {
         "correct": is_correct,
-        "message": "Correct!" if is_correct else f"Wrong. The correct answer is {session['country_name']}."
+        "message": "Correct!" if is_correct else "Wrong. Try again!"
     }
-    
-    # Optional: cleanup session after guess (as per example, game ends)
-    # del sessions[request.session_id]
     
     return response
 

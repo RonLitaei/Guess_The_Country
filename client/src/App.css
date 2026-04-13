@@ -197,8 +197,30 @@ button:disabled {
   border: 1px solid rgba(239, 68, 68, 0.3);
 }
 
-.action-bar {
+.action-bar-small {
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
+  margin-top: 0.5rem;
+}
+
+.btn-reveal {
+  background: transparent;
+  color: var(--text-muted);
+  border: none;
+  font-size: 0.85rem;
+  padding: 0.5rem;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.btn-reveal:hover:not(:disabled) {
+  color: var(--primary);
+  transform: none;
+}
+
+.feedback.revealed {
+  background: rgba(99, 102, 241, 0.2);
+  color: #818cf8;
+  border: 1px solid rgba(99, 102, 241, 0.3);
 }

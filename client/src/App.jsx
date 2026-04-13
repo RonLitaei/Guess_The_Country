@@ -8,6 +8,7 @@ function App() {
   const [feedback, setFeedback] = useState(null)
   const [loading, setLoading] = useState(false)
   const [gameOver, setGameOver] = useState(false)
+  const [revealed, setRevealed] = useState(false)
 
   // Start a new game on mount
   useEffect(() => {
@@ -18,6 +19,7 @@ function App() {
     setLoading(true)
     setFeedback(null)
     setGameOver(false)
+    setRevealed(false)
     setGuess('')
     try {
       const response = await fetch('http://localhost:8000/api/game/new')
@@ -47,6 +49,21 @@ function App() {
     }
   }
 
+  const revealAnswer = async () => {
+    setLoading(true)
+    try {
+      const response = await fetch(`http://localhost:8000/api/game/reveal?session_id=${sessionId}`)
+      const data = await response.json()
+      setFeedback({ correct: false, message: data.message })
+      setRevealed(true)
+      setGameOver(true)
+    } catch (error) {
+      console.error('Error revealing answer:', error)
+    } finally {
+      setLoading(false)
+    }
+  }
+
   const submitGuess = async (e) => {
     e.preventDefault()
     if (!guess.trim()) return
@@ -60,7 +77,10 @@ function App() {
       })
       const data = await response.json()
       setFeedback(data)
-      setGameOver(true)
+      
+      if (data.correct) {
+        setGameOver(true)
+      }
     } catch (error) {
       console.error('Error submitting guess:', error)
     } finally {
@@ -110,17 +130,22 @@ function App() {
                 Submit Guess
               </button>
             </div>
+            <div className="action-bar-small">
+              <button type="button" className="btn-reveal" onClick={revealAnswer} disabled={loading}>
+                I give up, show the answer
+              </button>
+            </div>
           </form>
         ) : (
           <div className="action-bar">
             <button className="btn-primary" onClick={startNewGame}>
-              Play Again
+              Next Country
             </button>
           </div>
         )}
 
         {feedback && (
-          <div className={`feedback ${feedback.correct ? 'correct' : 'wrong'}`}>
+          <div className={`feedback ${feedback.correct ? 'correct' : 'wrong'} ${revealed ? 'revealed' : ''}`}>
             {feedback.message}
           </div>
         )}
