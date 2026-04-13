@@ -30,7 +30,7 @@ function App() {
       setClues([data.clue])
     } catch (error) {
       console.error('Error starting game:', error)
-      alert('Could not connect to the backend. Make sure it is running on port 8000.')
+      alert(`Could not connect to the backend at ${API_URL}. Check your environment variables and ensure the backend is live.`)
     } finally {
       setLoading(false)
     }
