@@ -43,6 +43,10 @@ with open(countries_path, "r") as f:
 # In-memory storage for active games (sessions)
 sessions = {}
 
+@app.get("/")
+async def health_check():
+    return {"status": "healthy"}
+
 class GuessRequest(BaseModel):
     session_id: str = Field(..., max_length=100)
     guess: str = Field(..., max_length=50)
