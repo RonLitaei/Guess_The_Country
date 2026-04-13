@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+
 function App() {
   const [sessionId, setSessionId] = useState('')
   const [clues, setClues] = useState([])
@@ -22,7 +24,7 @@ function App() {
     setRevealed(false)
     setGuess('')
     try {
-      const response = await fetch('http://localhost:8000/api/game/new')
+      const response = await fetch(`${API_URL}/api/game/new`)
       const data = await response.json()
       setSessionId(data.session_id)
       setClues([data.clue])
@@ -39,7 +41,7 @@ function App() {
     
     setLoading(true)
     try {
-      const response = await fetch(`http://localhost:8000/api/game/clue?session_id=${sessionId}`)
+      const response = await fetch(`${API_URL}/api/game/clue?session_id=${sessionId}`)
       const data = await response.json()
       setClues([...clues, data.clue])
     } catch (error) {
@@ -52,7 +54,7 @@ function App() {
   const revealAnswer = async () => {
     setLoading(true)
     try {
-      const response = await fetch(`http://localhost:8000/api/game/reveal?session_id=${sessionId}`)
+      const response = await fetch(`${API_URL}/api/game/reveal?session_id=${sessionId}`)
       const data = await response.json()
       setFeedback({ correct: false, message: data.message })
       setRevealed(true)
@@ -70,7 +72,7 @@ function App() {
 
     setLoading(true)
     try {
-      const response = await fetch('http://localhost:8000/api/game/guess', {
+      const response = await fetch(`${API_URL}/api/game/guess`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ session_id: sessionId, guess })

@@ -18,7 +18,8 @@ This document summarizes the interaction between the user and the AI assistant d
 | **Compliance** | "also make sure to doucment this conversion and my prompts" | Created this `AI_USAGE.md` file to ensure full compliance with the assessment requirements. |
 | **Refinement** | "make sure that the user can try to guess the county again without telling him the answer until he chooses to see it and move on to the next guess" | Updated API and UI to support multiple attempts and a semi-hidden answer reveal. |
 | **Logging** | "add logs to users input for debugging" | Implemented server-side logging (to stream and `game.log`) for all user interactions. |
-| **Security** | "limit input length... limit the requests"| **User identified potential vulnerabilities** (buffer overflow/spamming). I implemented Pydantic-based input validation and SlowAPI rate limiting per user direction. |
+| **Security** | "limit input length... limit the requests"| Implemented Pydantic-based input validation and SlowAPI rate limiting per user direction. |
+| **Deployment** | "uploaded here but cant open it" | Configured the app for production by decoupling the API URL and adding a `netlify.toml` for correct build routing. |
 
 ## Code Generation vs. Manual Modification
 - **AI Generated**: 
